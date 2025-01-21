@@ -1,0 +1,1 @@
+ /Users/euro/Project/Mobile/Lab/Flutter-Restaurant-V2/.dart_tool/flutter_build/bde419a68aa4567b019b552a83019aef/native_assets.yaml: 
