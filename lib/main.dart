@@ -3,9 +3,13 @@ import 'dart:ui';
 import 'product.dart';
 import 'ViewMenu.dart';
 import 'BottonNav.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'order.dart';
+import 'Cart.dart';
+
 
 void main() {
-   runApp(const MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -13,17 +17,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-          title: 'Restaurant App',
-          debugShowCheckedModeBanner: false,
-          initialRoute: '/',
-          routes: {
-            '/': (context) => const Bottonnav(),
-            '/viewMenu': (context) => const ViewMenu(),
-            '/BottonNav': (context) => const Bottonnav(),
-            '/MyHomePage': (context) => const MyHomePage(title: 'Mürren Restaurant'),
-          },
-        );
+    return BlocProvider(
+      create: (context) => OrderBloc(), // สร้าง Bloc ที่ root ของแอป
+      child: MaterialApp(
+        title: 'Restaurant App',
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const Bottonnav(),
+          '/viewMenu': (context) => const ViewMenu(),
+          '/BottonNav': (context) => const Bottonnav(),
+          '/MyHomePage': (context) => const MyHomePage(title: 'Mürren Restaurant'),
+          '/Cart': (context) => const Cart(),
+        },
+      ),
+    );
   }
 }
 
@@ -104,7 +112,7 @@ class MyHomePage extends StatelessWidget {
               actions: [
                 IconButton(
                   padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                  onPressed: () => print("cart button clicked"),
+                  onPressed: () => Navigator.pushNamed(context, '/Cart'),
                   icon: const Icon(Icons.shopping_bag_outlined),
                   color: const Color.fromARGB(255, 39, 39, 39),
                 ),

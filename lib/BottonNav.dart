@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_project/SecondRoute.dart';
-import 'package:my_project/ThirdRoute.dart';
+// import 'package:my_project/ThirdRoute.dart';
 import 'package:my_project/main.dart';
+import 'Cart.dart';
 
 class Bottonnav extends StatefulWidget {
   const Bottonnav({super.key});
@@ -14,7 +15,8 @@ class _BottonnavState extends State<Bottonnav> {
   List<dynamic> option = const [
     SecondRoute(),
     MyHomePage(title: 'Mürren Restaurant'),
-    ThirdRoute(),
+    // ThirdRoute(),
+    Cart(),
   ];
   int index = 0; // ตัวเลือกเริ่มต้นที่ 0
 
@@ -38,7 +40,7 @@ class _BottonnavState extends State<Bottonnav> {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.food_bank_rounded), label: "Menu"),
-            BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: "About"),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_rounded ), label: "Cart"),
           ],
           currentIndex: index, // ใช้ตัวแปร index ในการกำหนดสถานะที่เลือก
           onTap: (value) {
